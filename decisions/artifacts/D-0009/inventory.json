@@ -1,0 +1,1 @@
+{"analysis":"inventory","counts":{"by_extension":{".json":38,".md":27,".py":106,".txt":1,".yml":2,"<none>":1},"distinct_extensions":6,"total_files":175},"decision_id":"D-0009","fallback":true,"mapped_from":"Create repo-local file ./artifacts/offline_docs_coverage_audit.md via offline-only scan for README, docstrings and comments, no network, no publish, no purchase"}

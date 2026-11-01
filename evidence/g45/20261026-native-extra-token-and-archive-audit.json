@@ -1,0 +1,61 @@
+{
+  "schema": "spray.g45.s6_s7_native_subset_audit.v1",
+  "repository": "ZestfulPulse/SPRAY",
+  "draft_branch": "feat/g45-unattended-batch-20261024",
+  "base_remote_head": "9ee850918cc077c9851dd262ceb991a5c7e1a5cd",
+  "source_sha_before": "371c3154d229c26d5e6179942a1a33c0c7b1c9fc",
+  "source_sha_after": "3678343e10089be81a48e93cd747c0a4bebc21f3",
+  "new_test_blob_sha": "260bd7f387fe78bcc3014210768ec77072689a17",
+  "source_attestation": "GitHub connector bytes reconstructed in isolated CPython; git hash-object matched source and existing 4 test files before modifications.",
+  "existing_original_test_blobs": {
+    "tests/test_model_observation_protocol_relative.py": "edc5a4162746004197bf2de61a9e15d2715865fc",
+    "tests/test_model_observation_quoted_secrets.py": "9ab779e616b6278758dfd7911c69b1ffdcb56275",
+    "tests/test_model_observation_sensitive_headers.py": "5d7a53084ba12fc0a7374b50d852d4bfb440e90b",
+    "tests/test_model_observation_urls.py": "09e7efaf61b0d46894e29a62e9b314a8bfb87b9c"
+  },
+  "runtime": "Python 3.13.5 isolated container; NOT Mac mini",
+  "test_command": "PYTHONPATH=. python -m unittest -v tests.test_model_observation_urls tests.test_model_observation_protocol_relative tests.test_model_observation_quoted_secrets tests.test_model_observation_sensitive_headers tests.test_model_observation_additional_tokens",
+  "pre_change": {
+    "existing_original_tests": "PASS 22/22",
+    "new_test_cases": 5,
+    "failing_test_cases": 4,
+    "failing_subtests_total": 7,
+    "before_log_sha256": "daecc5eacccd63f553e8f63c19418c2cb516d14a21fce6bf8e3e5ace09f343ad"
+  },
+  "post_change": {
+    "total_tests": 27,
+    "failed": 0,
+    "errored": 0,
+    "verdict": "PASS",
+    "after_log_sha256": "0f5473fce62207e335cb0c6dc9657c38195381fdd20670a38c95201e25427e39",
+    "scope": "Reconstructed original source + four original test modules and one added test; not whole-repo CI."
+  },
+  "fix": "Mask common OIDC id_token, CSRF/XSRF, session/auth token fields and full X-Auth-Token header values from browser observations.",
+  "additional_historical_artifact_audit": {
+    "actions_run": 40092141629,
+    "artifact_id": 12559835389,
+    "zip_sha256": "8a31f8068fc5f958d71bd53251ffb36c910ed268174b616b4f8a910493088d4a",
+    "g4_matrix_sha256": "b3bbd2e3d2deb723e13c35847a34454cc2a1a2eadb3bbba7873e65f96b478c30",
+    "g5_batch_sha256": "36c2a0aebb340112075d0d38cb218d65deb65bdccf4aa0cd262b2bd9a08181e1",
+    "g4_chromium_expected_outcome_records_checked": 9,
+    "g4_records_with_required_followup_control_fingerprint": 6,
+    "g4_repeat_denied_missing_followup_control_fingerprints": 3,
+    "screenshots_found": 9,
+    "g5_synthetic_task_passes": 5,
+    "legacy_missing_goal_fingerprint_fields": 5,
+    "s7_current_evidence_gate_for_legacy_artifact": "FAIL: G4 repeat_denied lacks 3 follow-up fingerprints; G5 missing five goal_fingerprint entries; model proof absent.",
+    "verification_scope": "Independent structural inspection of historical GitHub Actions ZIP, not execution of current original verifier or Chromium.",
+    "current_sha_s3_s5_claim": "NOT_VERIFIED"
+  },
+  "not_verified": [
+    "entire-repository unit tests",
+    "latest SHA CI",
+    "latest SHA original Chromium 3x3",
+    "current Gemini free tier/RPD",
+    "5 live Preview tasks",
+    "Mac mini local G3 fc2ea6be"
+  ],
+  "paid_usage": 0,
+  "real_model_calls": 0,
+  "github_actions_dispatched": 0
+}

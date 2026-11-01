@@ -1,0 +1,54 @@
+{
+  "schema": "spray.g45.s7_numbered_trace_focus.v1",
+  "timestamp_utc": "2026-10-26T18:01:28Z",
+  "ledger": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "prior_head": "8fefd3ac22aac840d5ce60fa2168027cda7d7a73",
+  "commits": {
+    "regression": "76546506f5721942bfa120318116c8485454bc54",
+    "verifier_fix": "7231a11fd7164cdf64598ccdf57fe2de3b6ef213",
+    "null_regression": "003afa2ee17c7df9e1ac39502664ad5343084942",
+    "reproducible_focus": "8362c5035a5c02362fc92121f0ded54011d71b3f"
+  },
+  "verifier_git_blob": "b7fc45e6fafbdfe34850e1c7f831ab1f308a5251",
+  "tests_git_blob": "bc73badb676f5804cd8fbb3c1ca44f40ba17df98",
+  "focused_script_path": "evidence/g45/20261027-g5-numbered-step-focused.py",
+  "focused_script_git_blob": "391c19d3edabfceeebdaabe63de65a2f6dd52b8b",
+  "focused_script_sha256": "cf057c9fce78631746054e9e9395dacf7431baae17fe38eee01748040c6c2fda",
+  "focused_log_sha256": "d58fe8cb33add055c968216b0530d392ea079e20fcf167813697b8048eb58f9b",
+  "validation": {
+    "method": "Isolated CPython 3.13.5 focus reproduces original guard's pre/post numbered-step predicates, not the original repository module",
+    "pre_patch_guard": "MUTATED_NUMBERED_STEPS_ACCEPTED",
+    "post_patch_guard": "MUTATED_NUMBERED_STEPS_REJECTED",
+    "mutation_names": [
+      "duplicate",
+      "reverse",
+      "wrong_start",
+      "gap",
+      "mixed_unnumbered",
+      "explicit_null"
+    ],
+    "focused_unittest_cases": 4,
+    "focused_unittest_result": "PASS",
+    "original_repo_unittest": "NOT_VERIFIED",
+    "full_ci_current_head": "NOT_VERIFIED",
+    "chromium_3_by_3_current_head": "NOT_VERIFIED",
+    "synthetic_g5_5_tasks_current_head": "NOT_VERIFIED",
+    "real_gemini_preview_5_tasks": "BLOCKED"
+  },
+  "compatibility_limitation": "Completely unnumbered historical synthetic fixture traces are still admitted by verify_g5_batch; this change validates integrity when sequence identifiers are present, not authenticity of all self-reported evidence.",
+  "safety": {
+    "model_calls": 0,
+    "preview_calls": 0,
+    "new_github_actions_runs": 0,
+    "paid_spend_usd": 0,
+    "main_merge": false,
+    "production_deploy": false,
+    "iam_or_secrets_changes": false,
+    "external_site_operations": false
+  },
+  "blockers": {
+    "S1": "No Mac mini access; local G3 fc2ea6be missing from GitHub remote API (422), cannot reconcile.",
+    "S5": "No approved live five-task manifest, independently verified Gemini free-tier/RPD headroom or authorized run environment.",
+    "S7": "Latest original repository CI and Chromium integration not executed; GitHub Actions monthly usage and extra USD 5 headroom not independently verified."
+  }
+}

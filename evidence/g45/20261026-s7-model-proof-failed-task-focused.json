@@ -1,0 +1,54 @@
+{
+  "schema": "spray.g45.s7.focused_model_proof_verifier.v1",
+  "date_kst": "2026-10-26",
+  "issue_url": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "branch": "feat/g45-unattended-batch-20261024",
+  "starting_commit": "5a594b331d663998c475ef1a6733865283f69fb5",
+  "regression_test_commit": "8b2e4b48743fbc4d0fc437784bb143b8dbe30e3f",
+  "verifier_fix_commit": "3e061d5ea01ea16bef97a018b566248eb7c3dd0a",
+  "files": {
+    "tests/test_g45_evidence_gate.py": "8933f0b013eeba3bc835f6b4b3d2e65e11b873c6",
+    "scripts/verify_g45_evidence.py": "a82b0c836b581927bbd343dde25804902576bb32"
+  },
+  "finding": "A fifth failed/unqualified task could carry arbitrary raw model_decision_trace, an inconsistent qa_status, or extra raw fields; the top-level model proof also accepted extra raw fields. The 4-of-5 model verifier still returned True.",
+  "tests_added": {
+    "original_repo_test_methods": 2,
+    "adversarial_subtests": 7,
+    "execution_status": "NOT_VERIFIED"
+  },
+  "focused_python_reproduction": {
+    "execution_status": "PASS",
+    "test_count": 8,
+    "positive_controls": 1,
+    "negative_adversarial_cases": 7,
+    "original_predicate_accepted_invalid_cases": 7,
+    "patched_predicate_rejected_invalid_cases": 7,
+    "environment": "isolated CPython 3.13.5",
+    "source_scope": "Manually reconstructed focused verifier function from GitHub original, NOT byte-identical original repository file or whole-test execution.",
+    "sha256_unittest_stdout_stderr": "d57ee3c7ef4655a973b600bdc769dfd5635f8df96adbfcdac75dd9d4db849869",
+    "sha256_focus_baseline_py": "5583d2c47cee323b3f2f6021e9a276a98dc12bdc6ee2638a0efd9288192278ea",
+    "sha256_focus_fixed_py": "36e00977e4743d8ad1168dbdd5b39cac015413e6080d4eec307a5c8e59d1fc56"
+  },
+  "verification": {
+    "remote_git_blob_consistency": "PASS",
+    "github_compare_ahead": 2,
+    "github_compare_behind": 0,
+    "current_original_repo_unittest": "NOT_VERIFIED",
+    "current_chromium_3x3": "NOT_VERIFIED",
+    "current_g5_synthetic_5_tasks": "NOT_VERIFIED",
+    "current_g5_real_preview_gemini": "BLOCKED",
+    "current_github_ci": "NOT_VERIFIED",
+    "mac_mini_g3_fc2ea6be_reconciliation": "BLOCKED",
+    "github_actions_monthly_spend_headroom": "NOT_VERIFIED"
+  },
+  "safety": {
+    "paid_calls": 0,
+    "external_page_visits": 0,
+    "ci_runs_triggered": 0,
+    "main_merge": false,
+    "production_deploy": false,
+    "iam_or_secrets_changes": false,
+    "destructive_actions": false
+  },
+  "next": "Run original tests.test_g45_evidence_gate on authoritative checkout, then G4 3x3 Chromium and G5 synthetic five-task evidence gate. No live model calls without approved five-task Preview manifest and independently verified free-tier RPD."
+}

@@ -1,0 +1,90 @@
+{
+  "ledger_version": "spray.resource_ledger.v1",
+  "generated_at": "2026-10-14T00:00:00Z",
+  "burn_rate_usd_per_day": 3.5,
+  "contingent_liabilities_usd": 12.0,
+  "protective_buffer_usd": 25.0,
+  "forecast_confidence": 0.4,
+  "buckets": [
+    {
+      "bucket_kind": "aws_activate_credit",
+      "balance_usd": 1000.0,
+      "currency": "USD",
+      "funding_class": "credit",
+      "provenance": "provider",
+      "verification": "verified",
+      "provider_update_time": "2026-10-13T18:00:00Z",
+      "eligibility": ["eligible aws services under the activate program"],
+      "expiry": "2027-10-13T00:00:00Z",
+      "confidence": 1.0,
+      "settlement_state": "settled"
+    },
+    {
+      "bucket_kind": "aws_free_tier_credit",
+      "balance_usd": 40.0,
+      "currency": "USD",
+      "funding_class": "credit",
+      "provenance": "provider",
+      "verification": "verified",
+      "provider_update_time": "2026-10-13T18:00:00Z",
+      "eligibility": {"scope": "free tier eligible usage only"},
+      "expiry": "2027-01-01T00:00:00Z",
+      "confidence": 0.9,
+      "settlement_state": "settled"
+    },
+    {
+      "bucket_kind": "kiro_subscription_credit",
+      "balance_usd": 20.0,
+      "currency": "USD",
+      "funding_class": "credit",
+      "provenance": "provider",
+      "verification": "verified",
+      "provider_update_time": "2026-10-13T18:00:00Z",
+      "eligibility": ["kiro subscription agent usage"],
+      "expiry": "2026-11-14T00:00:00Z",
+      "confidence": 0.95,
+      "settlement_state": "settled"
+    },
+    {
+      "bucket_kind": "settled_cash",
+      "balance_usd": 150.0,
+      "currency": "USD",
+      "funding_class": "cash",
+      "provenance": "owner",
+      "verification": "verified",
+      "provider_update_time": "2026-10-13T18:00:00Z",
+      "eligibility": ["general metered spend after buffer and liabilities"],
+      "expiry": null,
+      "confidence": 1.0,
+      "settlement_state": "settled"
+    }
+  ],
+  "leases": [
+    {
+      "lease_id": "lease-0001",
+      "bucket_kind": "settled_cash",
+      "max_spend_usd": 20.0,
+      "consumed_usd": 0.0,
+      "consumed_usd_provenance": "owner",
+      "granted_at": "2026-10-14T00:00:00Z",
+      "expires_at": "2026-10-14T06:00:00Z",
+      "authority": "external_control_plane",
+      "provenance": "owner",
+      "revoked": false,
+      "revoked_by": null
+    },
+    {
+      "lease_id": "lease-0002-no-spend",
+      "bucket_kind": "settled_cash",
+      "max_spend_usd": 0,
+      "consumed_usd": 0.0,
+      "consumed_usd_provenance": "owner",
+      "granted_at": "2026-10-14T00:00:00Z",
+      "expires_at": "2026-10-14T03:00:00Z",
+      "authority": "owner",
+      "provenance": "owner",
+      "revoked": false,
+      "revoked_by": null
+    }
+  ]
+}

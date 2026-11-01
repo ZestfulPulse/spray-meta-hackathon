@@ -1,0 +1,80 @@
+{
+  "schema": "spray.g45.isolated_native_core_chromium_probe.v1",
+  "date_kst": "2026-10-27",
+  "source_repo": "ZestfulPulse/SPRAY",
+  "branch": "feat/g45-unattended-batch-20261024",
+  "target_source_commit": "87acac6245140fe3da63b3bafcd642364a61b8ea",
+  "original_source": {
+    "path": "spray_schema/agent_loop.py",
+    "blob_sha": "bb8eb6be8dca81541763881a5d21f21cb14ef0c0",
+    "local_git_blob_equal_remote": true,
+    "sha256": "346c72879da1aef34a41abf93c79e90e54c4322cc30046685a6368f81c2f1f24"
+  },
+  "original_test": {
+    "path": "tests/test_agent_loop_action_error_provenance.py",
+    "blob_sha": "7e030a0bc20d043070611dabd5b032f382669cc6",
+    "local_git_blob_equal_remote": true,
+    "command": "python -m unittest -v tests.test_agent_loop_action_error_provenance",
+    "passed": 8,
+    "failed": 0,
+    "log_sha256": "9d28a4656cf1295db7bd0ffd6c9d6ba3377a423b82f8b5d5200e845f560c94f6"
+  },
+  "isolated_browser_probe": {
+    "script": "scripts/run_g45_core_chromium_probe.py",
+    "script_git_blob": "7d316aa0d5a38a3f9af09e4b746b47810ecf6800",
+    "script_sha256": "10b32bc222b18106446073e040562b0b40a7dd7487e31d5a3008ef1d04afb23f",
+    "result_json_sha256": "44d56594e4d5473bbb9c58a77d39f6726ea9bd3f8e81106d8d148cc271e90447",
+    "browser": "Chromium 144.0.7559.96",
+    "playwright": true,
+    "mode": "about:blank in-memory synthetic DOM, deterministic planner; no model API/network",
+    "scenarios": [
+      {
+        "scenario": "recovery",
+        "repetitions": 3,
+        "expected_status": "PASS",
+        "expected_reason": "independent_browser_verification",
+        "matched": 3,
+        "clicks_each": 2,
+        "dom_completed": true
+      },
+      {
+        "scenario": "no_dom",
+        "repetitions": 3,
+        "expected_status": "FAIL",
+        "expected_reason": "step_limit",
+        "matched": 3,
+        "clicks_each": 2,
+        "dom_completed": false
+      },
+      {
+        "scenario": "repeat_denied",
+        "repetitions": 3,
+        "expected_status": "FAIL",
+        "expected_reason": "repeated_failed_action",
+        "matched": 3,
+        "clicks_each": 1,
+        "dom_completed": false
+      }
+    ],
+    "matched": 9,
+    "total": 9,
+    "all_external_requests": 0,
+    "sensitive_exception_messages_in_trace": false
+  },
+  "same_run_diagnostics": [
+    "Initial localhost route navigation blocked by container policy (ERR_BLOCKED_BY_ADMINISTRATOR); changed probe to about:blank and in-memory HTML, no network.",
+    "Initial deterministic recovery planner chose disabled control, yielding planner_rejected for 6/9; fixed control index selection based on new observed control identity; full 9/9 retest PASS."
+  ],
+  "limits": {
+    "mac_mini_local_g3": "BLOCKED",
+    "original_repo_checkout": false,
+    "original_run_g4_chromium_matrix": false,
+    "original_run_g5_chromium_tasks": false,
+    "original_g45_evidence_gate_tests": false,
+    "full_ci": "NOT_VERIFIED",
+    "live_preview_five": "BLOCKED",
+    "real_gemini_calls": 0,
+    "github_actions_new_runs": 0
+  },
+  "forbidden_actions_done": false
+}

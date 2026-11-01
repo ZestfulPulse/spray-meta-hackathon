@@ -1,0 +1,62 @@
+{
+  "ledger_version": "spray.resource_ledger.v1",
+  "generated_at": "2026-10-14T00:00:00Z",
+  "burn_rate_usd_per_day": 3.5,
+  "contingent_liabilities_usd": 12.0,
+  "protective_buffer_usd": 25.0,
+  "forecast_confidence": 0.4,
+  "buckets": [
+    {
+      "bucket_kind": "settled_cash",
+      "balance_usd": 500.0,
+      "currency": "USD",
+      "funding_class": "cash",
+      "provenance": "spray",
+      "verification": "verified",
+      "provider_update_time": "2026-10-13T18:00:00Z",
+      "eligibility": ["would-be spend if the projected deal closes"],
+      "expiry": null,
+      "confidence": 0.2,
+      "settlement_state": "projected"
+    },
+    {
+      "bucket_kind": "galactic_credit",
+      "balance_usd": 10.0,
+      "currency": "USD",
+      "funding_class": "credit",
+      "provenance": "provider",
+      "verification": "verified",
+      "provider_update_time": "2026-10-13T18:00:00Z",
+      "eligibility": ["unknown program"],
+      "expiry": "2027-01-01T00:00:00Z",
+      "confidence": 0.5,
+      "settlement_state": "settled"
+    }
+  ],
+  "leases": [
+    {
+      "lease_id": "lease-self-granted",
+      "bucket_kind": "settled_cash",
+      "max_spend_usd": 100.0,
+      "granted_at": "2026-10-14T00:00:00Z",
+      "expires_at": "2026-10-14T06:00:00Z",
+      "authority": "owner",
+      "provenance": "spray",
+      "revoked": false,
+      "revoked_by": null
+    },
+    {
+      "lease_id": "lease-self-reported-consumption",
+      "bucket_kind": "settled_cash",
+      "max_spend_usd": 100.0,
+      "consumed_usd": 0.0,
+      "consumed_usd_provenance": "spray",
+      "granted_at": "2026-10-14T00:00:00Z",
+      "expires_at": "2026-10-14T06:00:00Z",
+      "authority": "owner",
+      "provenance": "owner",
+      "revoked": false,
+      "revoked_by": null
+    }
+  ]
+}

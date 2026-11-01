@@ -1,0 +1,98 @@
+name: G4 G5 Original Chromium Smoke (Draft)
+
+# Standalone proof job. The existing stdlib-only CI stays unchanged.
+# Only synthetic page.set_content fixtures; no Gemini, Preview, or external target writes.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/g45-chromium-smoke.yml'
+      - 'scripts/run_g4_chromium_matrix.py'
+      - 'scripts/run_g5_chromium_tasks.py'
+      - 'scripts/verify_g45_evidence.py'
+      - 'spray_schema/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: g45-chromium-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  original-scripts:
+    name: Original G4 3x3 and G5 5-task Chromium (synthetic)
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.number == 37
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      CI: 'true'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned Playwright Python adapter (no browser download)
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir -r requirements-dev.txt
+      - name: Resolve preinstalled Chrome; fail closed if absent
+        shell: bash
+        run: |
+          set -euo pipefail
+          browser="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$browser" && test -x "$browser"
+          printf 'SPRAY_CHROMIUM_PATH=%s\n' "$browser" >> "$GITHUB_ENV"
+          "$browser" --version
+      - name: Execute original G4 Chromium 9-case matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="$HOME/data/SPRAY/output"
+          mkdir -p "$base/g4" "$base/g5"
+          g4="$base/g4/ci-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          g5="$base/g5/ci-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          printf 'SPRAY_G4_MATRIX=%s/matrix.json\n' "$g4" >> "$GITHUB_ENV"
+          printf 'SPRAY_G5_BATCH=%s/run.json\n' "$g5" >> "$GITHUB_ENV"
+          printf 'SPRAY_G5_EVIDENCE_DIR=%s\n' "$g5" >> "$GITHUB_ENV"
+          python3 scripts/run_g4_chromium_matrix.py --chromium-path "$SPRAY_CHROMIUM_PATH" --evidence-dir "$g4"
+      - name: Execute original G5 five-task Chromium smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/run_g5_chromium_tasks.py --chromium-path "$SPRAY_CHROMIUM_PATH" --evidence-dir "$SPRAY_G5_EVIDENCE_DIR"
+      - name: Run real Chromium Preview safety guards (synthetic loopback only)
+        shell: bash
+        env:
+          RUN_BROWSER_E2E: '1'
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -p 'test_preview_guard_h9.py' -v
+      - name: Verify original artifacts with G6 evidence gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          from scripts.verify_g45_evidence import evaluate
+          g4 = json.loads(Path(os.environ["SPRAY_G4_MATRIX"]).read_text())
+          g5 = json.loads(Path(os.environ["SPRAY_G5_BATCH"]).read_text())
+          verdict = evaluate(g4=g4, g5=g5)
+          print(json.dumps(verdict, sort_keys=True))
+          assert len(g4["records"]) == 9
+          assert len(g5["tasks"]) == 5
+          assert verdict["g4_synthetic_chromium"] == "PASS"
+          assert verdict["g5_batch_quality"] == "PASS"
+          assert verdict["g5_real_model_proof"] == "NOT_VERIFIED"
+          assert verdict["readiness"] == "PARTIAL"
+          PY
+      - name: Upload synthetic-only evidence for audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: g45-original-chromium-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ~/data/SPRAY/output/g4/ci-*/
+            ~/data/SPRAY/output/g5/ci-*/
+          if-no-files-found: warn
+          retention-days: 3

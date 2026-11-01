@@ -1,0 +1,42 @@
+{
+  "schema": "spray.g45.model_index_focused.v1",
+  "date_kst": "2026-10-26",
+  "source_commit": "c7eed2e65e7863e0d3d7f9cf96ca2bd2359ae9b9",
+  "source_blob_sha": "b40772f8f94a3a32688daa7a3a924c753d728550",
+  "tests_commit": "57926daef97185b81725a11930df07465d47f55b",
+  "tests_blob_sha": "f7e4113d3a5120cc6b41a74e708ce9d52cb05207",
+  "scope": "isolated Python focused probe using manually transcribed verbatim method bodies; original package unittest NOT run",
+  "test_cases": 13,
+  "passed": 13,
+  "failed": 0,
+  "variants": {
+    "click_rejected": [
+      "-1",
+      "100",
+      "1000",
+      "True"
+    ],
+    "click_accepted": [
+      "0",
+      "1",
+      "99"
+    ],
+    "history_rejected": [
+      "-1",
+      "100",
+      "False",
+      "True"
+    ],
+    "history_accepted": [
+      "99",
+      "0"
+    ]
+  },
+  "local_evidence_sha256": "19be7bd6a634b506c9d1e5163c5e82bf78645c880521abd0e6a227805a423c1e",
+  "original_unittest": "NOT_VERIFIED",
+  "chromium": "NOT_VERIFIED",
+  "github_actions": "NOT_VERIFIED",
+  "live_gemini": "BLOCKED",
+  "ci_note": "[skip ci] commits; unable to verify $5 monthly Actions headroom. No CI run launched.",
+  "result": "PASS (isolated predicates only)"
+}

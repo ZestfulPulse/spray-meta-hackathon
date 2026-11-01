@@ -1,0 +1,13 @@
+{
+  "schema_version": "spray.event.v1",
+  "event_id": "00000000-0000-4000-8000-000000000002",
+  "occurred_at": "2026-10-14T00:00:00Z",
+  "ingested_at": "2026-10-14T00:00:01Z",
+  "run_id": "run-0002",
+  "kind": "decision",
+  "claim_origin": "spray",
+  "verification": "maybe",
+  "evidence_refs": [],
+  "cost_estimate_usd": 0,
+  "policy_version": "v1"
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "spray.g45.original_runner_orchestrator_evidence.v1",
+  "date_kst": "2026-10-27",
+  "authoritative_ledger": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "source_branch": "feat/g45-unattended-batch-20261024",
+  "starting_head": "9a032a79f1119c82ec4e30f79588e33ba31d508b",
+  "source_commit": "f9c1fe31c4930588cabf2386b4447170c588a410",
+  "source_blobs": {
+    "scripts/run_g45_synthetic_gate.py": "da34740773534590f054526427f3964ded55b4e2",
+    "tests/test_g45_synthetic_gate_orchestrator.py": "31dbeac8c09eb9bbdc6abfaa82ee45bb50982942"
+  },
+  "execution": {
+    "python_version": "3.13.5",
+    "command": "python -m unittest -v tests.test_g45_synthetic_gate_orchestrator",
+    "result": "PASS",
+    "tests_passed": 8,
+    "tests_failed": 0,
+    "native_scope": "orchestrator module and mocked original G4/G5 subprocesses",
+    "log_sha256": "7d9175ac427a0e3c72ebdd665e58b51c619105bff2a52a08272a9a694eebda36",
+    "py_compile": "PASS",
+    "local_original_drill": {
+      "attempted": true,
+      "verdict": "BLOCKED",
+      "error_type": "RuntimeError",
+      "reason": "private SPRAY Git worktree absent from isolated execution container; no original G4/G5 source checkout",
+      "fail_closed_output_sha256": "6f20a875a94ccd4a7102acf3b37c0001fddf9221507a9f7010da9b744a659f7b"
+    },
+    "original_g4_3x3": "NOT_VERIFIED",
+    "original_g5_5task": "NOT_VERIFIED",
+    "original_verifier_integration": "NOT_VERIFIED",
+    "live_gemini_5task": "BLOCKED",
+    "latest_full_ci": "NOT_VERIFIED"
+  },
+  "guardrails": {
+    "original_runner_wrapped": true,
+    "exact_head_and_clean_tracked_worktree": true,
+    "source_sha256_provenance": true,
+    "independent_g5_after_g4_failure": true,
+    "private_evidence_mode": "0600",
+    "strips_api_keys_and_proxy_from_child_env": true,
+    "synthetic_success_cannot_claim_live_model_pass": true,
+    "live_model_requests": 0,
+    "newly_triggered_actions": 0,
+    "production_or_main_changes": false,
+    "iam_or_secret_changes": false,
+    "spend_usd": 0
+  },
+  "next": "Execute original-runner wrapper from a clean pinned authorized Mac mini or private checkout with Chromium already installed, then examine G4 9 records and G5 5 task artifacts; genuine Preview/Free Tier/RPD gate stays blocked."
+}

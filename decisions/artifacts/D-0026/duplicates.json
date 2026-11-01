@@ -1,0 +1,1 @@
+{"analysis":"duplicates","counts":{"block_size":3,"duplicate_basename_groups":2,"duplicate_basenames":["README.md","__init__.py"],"duplicate_block_count":1066,"files_in_duplicate_groups":6,"headline":2},"decision_id":"D-0026","fallback":false,"mapped_from":"Run duplicates dedupe scan for duplicate filenames and near-duplicate blocks producing repo-local offline artifact only"}

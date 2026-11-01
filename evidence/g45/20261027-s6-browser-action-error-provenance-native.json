@@ -1,0 +1,39 @@
+{
+  "schema": "spray.g45.s6.native_action_error_provenance.v1",
+  "execution_date_kst": "2026-10-27",
+  "ledger": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "draft_pr": "https://github.com/ZestfulPulse/SPRAY/pull/37",
+  "baseline_commit": "5ce9f594f04c0559898272374fdfab4984950132",
+  "original_source_blob": "c1141d179e0cf5149d63dbfc39db8bbc9207b01b",
+  "patched_source_blob_local_git_hash_object": "908844dfef2d475350edece64661eaaedd3d9a26",
+  "native_test_method": "GitHub blob-matched original Python module, isolated tests with synthetic browser/planner; no model/network/Chromium; not full repository suite",
+  "python_version": "3.13.5",
+  "before": {
+    "tests": 5,
+    "failures": 3,
+    "failures_expected_due_to_missing_or_unbounded_exception_type": true,
+    "log_sha256": "b89c7a7adb3ce9370776d2d8f6e81a8bdcf69c183b511242edd83b5aee602629"
+  },
+  "after": {
+    "tests": 5,
+    "passed": 5,
+    "failures": 0,
+    "log_sha256": "12ea15571f042a245489dbfefda9f8f842d588be48e7abded2c329f890694ce1",
+    "python_py_compile": "PASS"
+  },
+  "scope": {
+    "S6": "PARTIAL: browser-action exception class bound+sanitized in action trace and planner history",
+    "S7": "NOT_VERIFIED: latest overall CI, actual Chromium 3x3, G5 synthetic five tasks, live Gemini Preview five tasks",
+    "S1": "BLOCKED: Mac mini local fc2ea6be unavailable",
+    "S5": "BLOCKED: five approved Preview tasks and independently verified Free Tier/RPD missing"
+  },
+  "security": {
+    "actual_model_calls": 0,
+    "external_sites_accessed": 0,
+    "actions_runs_triggered": 0,
+    "main_merge": false,
+    "production_deployment": false,
+    "iam_or_secrets_changed": false,
+    "paid_spend_usd": 0
+  }
+}

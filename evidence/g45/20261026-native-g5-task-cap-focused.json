@@ -1,0 +1,52 @@
+{
+  "schema": "spray.g45.s7_g5_task_cap_focused.v1",
+  "date_kst": "2026-10-26",
+  "execution_ledger": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "base_commit": "6c9127523513f38a5ebc7340f89814712cdf601e",
+  "test_commit": "b91e94025b48bbfed098d39be0d3e40fe2579ecd",
+  "fix_commit": "db7a247883369f1bd93559fb442ad8105d092e72",
+  "change": {
+    "problem": "S7 accepted G5 model evidence with model_requests > owner-approved TaskSpec.max_steps, provided global 4-request bound held.",
+    "proof_case": "task max_steps=1, model_requests=2, model_responses=1, decision_count=1, batch_trace=1 click, global model_requests=5",
+    "correction": "All G5 tasks need a typed 1..10 max_steps and trace length within max_steps; each model's requests, responses and decisions bounded by min(4, task.max_steps).",
+    "test_file": "tests/test_g45_evidence_gate.py",
+    "source_file": "scripts/verify_g45_evidence.py"
+  },
+  "focused_reproduction": {
+    "method": "Original function predicates manually extracted into separate CPython 3.13.5 reproduction, NOT original GitHub module or complete tests.",
+    "before_fix_predicate": "Incorrectly accepted forged per-task over-cap model proof.",
+    "after_fix_predicate": "Correctly rejected forged per-task over-cap model proof.",
+    "cases_passed": 12,
+    "cases_total": 12,
+    "focused_result_sha256": "4f77fd66735f604ca0812f2b19332528b187d4ae7e4c307f458fcc188a6af6f9",
+    "focused_status": "PASS",
+    "repo_original_test_execution": "NOT_VERIFIED",
+    "repo_full_test_execution": "NOT_VERIFIED"
+  },
+  "github": {
+    "source_test_fast_forward": {
+      "ahead": 2,
+      "behind": 0
+    },
+    "ci_for_source_head": "NOT_VERIFIED",
+    "commit_statuses_for_source_head": 0,
+    "action_runs_for_source_head": 0,
+    "pr37": "OPEN_DRAFT_UNMERGED"
+  },
+  "gates": {
+    "S1": "BLOCKED_Mac_mini_local_fc2ea6be_unavailable",
+    "S2_S3_S4": "HISTORICAL_PASS_SYNTHETIC_ONLY",
+    "S5": "BLOCKED_live_preview_manifest_and_free_tier_RPD_unverified",
+    "S6": "PARTIAL_targeted_safety_fix_written",
+    "S7": "NOT_VERIFIED_full_CI_current_Chromium_live_demo"
+  },
+  "safety": {
+    "actual_model_calls": 0,
+    "new_github_actions_runs": 0,
+    "main_merge": false,
+    "production_deploy": false,
+    "secrets_or_iam_change": false,
+    "paid_spend": 0,
+    "third_party_site_actions": 0
+  }
+}

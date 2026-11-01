@@ -1,0 +1,55 @@
+{
+  "schema": "spray.g45.s6.native_regression.v1",
+  "date_kst": "2026-10-26",
+  "issue": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "draft_pr": "https://github.com/ZestfulPulse/SPRAY/pull/37",
+  "baseline_head": "6eaa55224b87fc54274279b3a82a5e3e5732f81d",
+  "regression_commit": "674da0a2946f694da1506d280b9ffceb975f2152",
+  "repair_commit": "7a6f5087236980c12d2e6e299cbcaf55cefbc375",
+  "python_version": "3.13.5",
+  "command": "python -m unittest -v tests.test_model_observation_urls tests.test_model_observation_protocol_relative",
+  "source_origin": "Exact original GitHub file reconstructed in isolated CPython runtime. Source baseline Git blob verified by local git hash-object; existing original test file also blob-matched before any changes.",
+  "git_blobs": {
+    "model_observation_before": "5a8b80b52f6b253186c7066e8af2982f08ada69a",
+    "model_observation_after": "ae0e0ee91828f487ecde42e9f8ad74fa10ad8bcc",
+    "existing_regressions": "09e7efaf61b0d46894e29a62e9b314a8bfb87b9c",
+    "new_regressions": "edc5a4162746004197bf2de61a9e15d2715865fc"
+  },
+  "defect": "The HTTP(S)-only observation URL scrubber did not recognize protocol-relative //user:pass@host/path?token=... links in page text, title, and control labels; synthetic canary credentials and path tokens reached the model-facing serialized observation.",
+  "fix": "Mask scheme-relative links only at authority-like // boundaries; preserve ordinary interior // in text and existing http(s) redaction.",
+  "tests": {
+    "baseline": {
+      "total": 7,
+      "passed": 7,
+      "verdict": "PASS"
+    },
+    "before": {
+      "total": 10,
+      "failures": 2,
+      "other_passes": 8,
+      "verdict": "FAIL",
+      "log_sha256": "8e10b747aeb669ccbc55b8d58a64a6e9fd62bf0d4d2300ddb88917ca21adbd5e"
+    },
+    "after": {
+      "total": 10,
+      "passed": 10,
+      "verdict": "PASS",
+      "log_sha256": "ef8732dab158279b43dc013c14623564662f5e5b118530357509c1ca1802bca8"
+    }
+  },
+  "remote_fast_forward": {
+    "ahead": 2,
+    "behind": 0
+  },
+  "limits": {
+    "scope": "Two modules / ten native tests, no whole-repository test or Chromium executed",
+    "chromium_latest_head": "NOT_VERIFIED",
+    "ci_latest_head": "NOT_VERIFIED",
+    "g5_real_preview_5_tasks": "BLOCKED",
+    "mac_mini_g3": "BLOCKED",
+    "model_requests": 0,
+    "paid_spend_usd": 0,
+    "production_or_main_merge": false
+  },
+  "guardrails": "No model call, browsing, GitHub Actions dispatch, main merge, Production deployment, IAM/secret change, paid spend, deletion, public exposure, or third-party site action."
+}

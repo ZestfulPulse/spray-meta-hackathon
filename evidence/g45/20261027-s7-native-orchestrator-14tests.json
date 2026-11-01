@@ -1,0 +1,52 @@
+{
+  "blob_identical_to_remote": true,
+  "environment": {
+    "browser_binary_present": true,
+    "github_actions_executed": false,
+    "model_call": false,
+    "platform": "linux",
+    "python": "3.13.5"
+  },
+  "native_git_fixture_tests": {
+    "assume_unchanged_rejected": "PASS",
+    "ignored_python_shadow_rejected": "PASS",
+    "pristine_pin": "PASS",
+    "untracked_python_shadow_rejected": "PASS"
+  },
+  "native_original_unittest": {
+    "errors": 0,
+    "exit_code": 0,
+    "failed": 0,
+    "log_sha256": "ebeea49921cba920f4480a145518bb5ecd5aa3370f8e68235826e9d959a20bac",
+    "module": "tests.test_g45_synthetic_gate_orchestrator",
+    "passed": 14,
+    "tests_run": 14
+  },
+  "negative_cli_preflight": {
+    "error_type": "RuntimeError",
+    "exit_code": 1,
+    "expected_head": "1946294268402017c05d7aa49ea5876f00ecc6e9",
+    "only_two_original_files_present": true,
+    "result": "PASS_FAIL_CLOSED"
+  },
+  "repository": "ZestfulPulse/SPRAY",
+  "s7_status": "PARTIAL",
+  "schema": "spray.g45.s7_native_orchestrator_regression.v1",
+  "scope_limitations": {
+    "complete_private_git_checkout": false,
+    "latest_github_ci": "NOT_VERIFIED",
+    "mac_mini_g3_fc2ea6be": "BLOCKED",
+    "original_evidence_verifier_integration": "NOT_VERIFIED",
+    "original_g4_chromium_3x3": "NOT_VERIFIED",
+    "original_g5_chromium_5": "NOT_VERIFIED",
+    "real_preview_gemini_5": "BLOCKED"
+  },
+  "source_files_git_blob_sha1": {
+    "scripts/run_g45_synthetic_gate.py": "9e831da85796967ead42f62e364d87f295c24945",
+    "tests/test_g45_synthetic_gate_orchestrator.py": "dee9ff9856c20b4bad13e7226a225392e299d60e"
+  },
+  "target_branch": "feat/g45-unattended-batch-20261024",
+  "target_draft_pr": 37,
+  "tested_at_utc": "2026-10-27T02:05:17+00:00",
+  "tested_commit": "1946294268402017c05d7aa49ea5876f00ecc6e9"
+}

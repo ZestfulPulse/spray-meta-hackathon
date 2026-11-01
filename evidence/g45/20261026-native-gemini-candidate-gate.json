@@ -1,0 +1,48 @@
+{
+  "actual_model_calls": 0,
+  "after": "PASS: 8/8 unittest methods; malformed candidates raise bounded RuntimeError; 4 subtests expected-failure containment PASS",
+  "baseline_head": "651c5db9956f53f83eccd1be6bdf5e7c4c829097",
+  "before": "FAIL: 8 unittest methods with 4 ERROR subtests on malformed candidate None/str/int/list; unhandled AttributeError",
+  "branch": "feat/g45-unattended-batch-20261024",
+  "browser_calls": 0,
+  "command": "python -m unittest -v tests.test_gemini_planner",
+  "date_kst": "2026-10-26",
+  "gemini_real_five_tasks": "BLOCKED",
+  "github_actions_billing_headroom": "NOT_VERIFIED",
+  "github_actions_started": 0,
+  "github_commits": [
+    "06f943bbfab7e24295dfac41fa8db7284d334ab3",
+    "dc678cd6f520529cb7d8e87e3bbf52fc0de9bd61"
+  ],
+  "iam_secrets_changes": false,
+  "latest_chromium_integration": "NOT_VERIFIED",
+  "latest_full_repo_unittest": "NOT_VERIFIED",
+  "local_mac_fc2ea6be": "BLOCKED",
+  "log_sha256": {
+    "after": {
+      "bytes": 1478,
+      "sha256": "6027ddbb54c420b98f324f36d7e43fd559b2ed196db75c711e7d3be080e65b88"
+    },
+    "before": {
+      "bytes": 6571,
+      "sha256": "5e2451f7243aaec17e86d3c506d4a046ddf9332fe7f72434ddeb2890c41eff63"
+    }
+  },
+  "main_merge": false,
+  "network_calls": 0,
+  "paid_spend": false,
+  "production_deployment": false,
+  "repository": "ZestfulPulse/SPRAY",
+  "source_blobs_after": {
+    "spray_schema/gemini_planner.py": "539a5c3460aba02f23c290e5f257dd8b5fbe437a",
+    "spray_schema/model_observation.py": "8e6240ab69e942ad7c8d6f2e77c828b3304d7def",
+    "tests/test_gemini_planner.py": "eb6baf8830314fe4f0401bfb6793e4ee5d3a3b97"
+  },
+  "source_blobs_before": {
+    "spray_schema/gemini_planner.py": "b40772f8f94a3a32688daa7a3a924c753d728550",
+    "spray_schema/model_observation.py": "8e6240ab69e942ad7c8d6f2e77c828b3304d7def",
+    "tests/test_gemini_planner.py": "f7e4113d3a5120cc6b41a74e708ce9d52cb05207"
+  },
+  "stage": "S6/S7",
+  "test_environment": "isolated no-cost container Python 3.13.5; exact GitHub blobs materialized as a focused three-file source/test subset (not full repository checkout)"
+}

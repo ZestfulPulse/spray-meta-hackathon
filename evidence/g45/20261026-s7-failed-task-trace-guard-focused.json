@@ -1,0 +1,33 @@
+{
+  "schema": "spray.g45.s7.failed_task_trace_guard.focused.v1",
+  "date_kst": "2026-10-26",
+  "base_head": "1f92bf3d4d430ffa3661f02fdacbba29ceecd645",
+  "test_commit": "711d18587856c66cf6c354348ec1175c10fc27cf",
+  "fix_commit": "8a5297baed14f7eca5fe8fa37ee81bd16e464b7b",
+  "blobs_verified": {
+    "source": "ef125f54b714a0312bf0fbc8bbf982627177d6db",
+    "test": "51b7937cbb131207af375b0c6539a0adae5c2e0d"
+  },
+  "finding": "G5 evidence gate previously validated actions only in passing tasks: a 4/5 batch could hide an unauthorized action or raw page data in the fifth failed-task trace.",
+  "reproduction": {
+    "scope": "CPython 3.13.5 focused function excerpt, hand-reconstructed from GitHub source, NOT full native module or original unittest",
+    "before": "FAIL (9 malformed-action/raw-data subtest failures); control PASS",
+    "before_log_sha256": "1f2ee32acff1cf0d3b9555226425ec3e41596935b3fd26ab388ca0285957dab3",
+    "after": "PASS 4/4 focused unittest methods; nine bad examples rejected; five benign controls accepted",
+    "after_log_sha256": "0259b1dcde7deedd28272c05f297f5345e84c5b5f11a67c43444ab0259d62447"
+  },
+  "gate": {
+    "github_commit": "PASS",
+    "focused_excerpt": "PASS",
+    "native_repository_unittest": "NOT_VERIFIED",
+    "latest_ci": "NOT_VERIFIED",
+    "current_chromium_3x3": "NOT_VERIFIED",
+    "g5_synthetic_five": "NOT_VERIFIED",
+    "g5_live_five": "BLOCKED",
+    "mac_mini_baseline": "BLOCKED"
+  },
+  "no_spend": true,
+  "new_actions_runs": 0,
+  "real_model_calls": 0,
+  "next": "Run tests.test_g45_evidence_gate on exact HEAD and original Chromium G4 3x3/G5 5-task evidence in authorized no-cost environment; do not promote to S7 PASS until independently verified."
+}

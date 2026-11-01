@@ -1,0 +1,1 @@
+{"analysis":"stats","counts":{"files_scanned":177,"total_bytes":1161006,"total_lines":24813},"decision_id":"D-0006","fallback":false,"mapped_from":"Create repo-local offline file analysis/docs_coverage_v1.md by scanning local repository files for README presence, docstring coverage and undocumented modules only, with zero network calls and zero publishing"}

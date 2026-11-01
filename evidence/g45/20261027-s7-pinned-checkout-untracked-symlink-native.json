@@ -1,0 +1,75 @@
+{
+  "schema": "spray.g45.s7_checkout_integrity.v1",
+  "date_kst": "2026-10-27",
+  "execution_scope": "S7 source provenance, clean checkout and evidence path guards",
+  "issue": 36,
+  "pr": 37,
+  "base_head": "11cffb52aa7dc3dacc8a36d41226b2910fa434fb",
+  "code_head": "4a09ebcad0065f27b425b7ad0d5fb548523310c1",
+  "mode": "offline CPython 3.13.5, GitHub source blob identical in isolated container",
+  "actual_model_call": false,
+  "real_chromium_executed": false,
+  "preview_access": false,
+  "actions_triggered": false,
+  "finding": [
+    "Orchestrator accepted omitted --expected-head, contradicting pinned SHA preflight",
+    "Checkout accepted untracked executable Python files that could shadow imports despite clean tracked diff",
+    "Evidence directories could be symlinked outside the approved ~/data/SPRAY/output tree"
+  ],
+  "repair": [
+    "Explicit 40-character HEAD required in CLI and _checkout",
+    "Reject git ls-files --others --exclude-standard nonempty or errors before subprocess",
+    "Reject pre-existing symlinks along data/SPRAY/output and g4/g5/g45 before subprocess"
+  ],
+  "source_blobs": {
+    "scripts/run_g45_synthetic_gate.py": "f6ebc7aa06e3f9a5de8dd23f93315c45b936ecdd",
+    "tests/test_g45_synthetic_gate_orchestrator.py": "f71f1ff87a00368dccf174bae28f6345928a00ae"
+  },
+  "commits": [
+    "30ec8fd5ef177292358f2096d6234379c05d41aa",
+    "4a09ebcad0065f27b425b7ad0d5fb548523310c1"
+  ],
+  "tests": {
+    "command": "python -m unittest discover -s tests -p test_g45_synthetic_gate_orchestrator.py -v",
+    "pre_fix": {
+      "existing_pass": 8,
+      "new_regressions_fail": 3,
+      "new_regressions_error": 1,
+      "description": "11 total: 8 existing PASS, 2 newly introduced FAIL and 1 ERROR. No downstream Chromium was invoked.",
+      "log_sha256": "dd4f13ea89319e1d49dc92b2fa88dd47432fc32daa1d93a038ff6ad5936e05e8"
+    },
+    "post_fix": {
+      "status": "PASS",
+      "passed": 11,
+      "failed": 0,
+      "errors": 0,
+      "log_sha256": "8bbfb7fd84514c71637117ce33bffb03073f6daee9927ca8737112cbaa7a543f"
+    }
+  },
+  "scope_limitations": [
+    "Native single-module Python unittest only; not complete repository checkout or full suite",
+    "S3 official G4 Chromium 3x3 NOT_VERIFIED at current HEAD",
+    "S4 official G5 Chromium synthetic 5 tasks NOT_VERIFIED at current HEAD",
+    "S5 Gemini live five tasks blocked by approved manifest and Free Tier/RPD evidence",
+    "Ignored files are not included in git ls-files --others --exclude-standard; no claim of complete runtime tamper protection",
+    "Existing PR Actions commits not rerun due to unverified billing headroom, latest CI NOT_VERIFIED"
+  ],
+  "gates": {
+    "S1": "BLOCKED",
+    "S2": "previous SHA scope PASS; current full suite NOT_VERIFIED",
+    "S3": "previous SHA synthetic PASS; current original Chromium NOT_VERIFIED",
+    "S4": "previous SHA synthetic PASS; current original 5 task NOT_VERIFIED",
+    "S5": "BLOCKED",
+    "S6": "PARTIAL",
+    "S7": "PARTIAL"
+  },
+  "safety": {
+    "main_merge": false,
+    "production_deploy": false,
+    "iam_secrets_change": false,
+    "new_paid_usage": false,
+    "external_publishing": false,
+    "destructive_changes": false
+  },
+  "next_safe_step": "On authorized full checkout, run this module's original native unittest, then pinned original G4 3x3 + G5 synthetic 5 tasks through run_g45_synthetic_gate.py. Continue to real Preview only after exact approved five-task manifest and confirmed Gemini free RPD."
+}

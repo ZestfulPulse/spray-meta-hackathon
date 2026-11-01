@@ -1,0 +1,68 @@
+{
+  "schema": "spray.g45.s7.pinned_source_guard_audit.v1",
+  "date": "2026-10-27",
+  "issue": 36,
+  "draft_pr": 37,
+  "baseline_head": "7f1f2f622e7946e72a6f97808f4969451ae04c4b",
+  "test_commit": "1a3cbedd03fdc6e2fb2622b99f2a5bd32168bf95",
+  "fix_commit": "48f1a79cca07158ef74abc0c0b3525d4d8fbd440",
+  "files": {
+    "runner": "scripts/run_g45_synthetic_gate.py",
+    "runner_blob": "9e831da85796967ead42f62e364d87f295c24945",
+    "regressions": "tests/test_g45_synthetic_gate_orchestrator.py",
+    "regressions_blob": "dee9ff9856c20b4bad13e7226a225392e299d60e"
+  },
+  "finding": "A nominally clean pinned worktree can contain an altered tracked source hidden by Git assume-unchanged, or an ignored Python import-shadow module under scripts/. Pre-existing git diff and untracked checks accepted both in an isolated real-Git reproduction.",
+  "fix": "Compare the 11 declared source paths and this orchestrator bytewise through git hash-object against HEAD:path blobs. Reject ignored paths under scripts/ and spray_schema/ in addition to already-denied visible untracked files. Fail closed before launching Chromium.",
+  "isolated_reproduction": {
+    "python": "3.13.5",
+    "git_behavior": "Real ephemeral Git repositories with pinned commits, git update-index --assume-unchanged, and .git/info/exclude",
+    "scope": "Reproduction of exact preflight Git predicates only; not GitHub original module/unit test execution",
+    "script_local_sha256": "2081c271daf943ada66ffbef2a3c7e54d69de0fbd554bac9792303d39a01397b",
+    "checks": [
+      {
+        "name": "pristine_checkout",
+        "before": "ACCEPT",
+        "after": "ACCEPT",
+        "result": "PASS"
+      },
+      {
+        "name": "assume_unchanged_modified_source",
+        "before": "ACCEPT_UNSAFE",
+        "after": "REJECT",
+        "result": "PASS"
+      },
+      {
+        "name": "ignored_scripts_json_import_shadow",
+        "before": "ACCEPT_UNSAFE",
+        "after": "REJECT",
+        "result": "PASS"
+      }
+    ],
+    "result": "PASS_3_OF_3"
+  },
+  "registered_native_regressions": 3,
+  "registered_native_regressions_execution": "NOT_VERIFIED",
+  "latest_head_original_repo_unit_tests": "NOT_VERIFIED",
+  "latest_head_original_g4_chromium_9": "NOT_VERIFIED",
+  "latest_head_original_g5_synthetic_tasks_5": "NOT_VERIFIED",
+  "latest_head_ci": "NOT_VERIFIED",
+  "gemini_free_tier_and_rpd": "NOT_VERIFIED",
+  "live_preview_task_set": "BLOCKED",
+  "mac_mini_local_g3_reconciliation": "BLOCKED",
+  "limitations": [
+    "Container has no full authorized private SPRAY checkout, so native repository tests and current HEAD original Chromium/G5 pipeline were not run.",
+    "Guard examines declared executed source blobs and ignored entries in scripts/ and spray_schema/, not all possible external interpreter/plugin poisoning.",
+    "Potential TOCTOU if a different actor can change files after preflight; no claim of adversarial host protection.",
+    "Existing ignored Python caches in developer checkout are intentionally blocked; use a fresh checkout for certification.",
+    "Changes use [skip ci]; verify Actions monthly usage and $5 cap before enabling new cloud CI."
+  ],
+  "safety": {
+    "new_github_actions_runs": 0,
+    "model_calls": 0,
+    "production_deploy": false,
+    "main_merge": false,
+    "iam_secrets_changed": false,
+    "paid_spend_usd": 0
+  }
+}

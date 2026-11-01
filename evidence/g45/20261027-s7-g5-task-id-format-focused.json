@@ -1,0 +1,31 @@
+{
+  "schema": "spray.g45.s7_task_id_format_focus.v1",
+  "date_kst": "2026-10-27",
+  "issue": 36,
+  "branch": "feat/g45-unattended-batch-20261024",
+  "baseline_commit": "0e391da5fffb7aeb669c599c9fcc55069c3604e8",
+  "test_commit": "64b057c3d9b53de5eeb41a1fe137c472313d60c8",
+  "fix_commit": "5e86ecdbb9b75dadd11cc6062fb314a5a797abb2",
+  "verifier_old_blob": "31dbd2334b2ad580af9fa4d2628d90add51e5e32",
+  "verifier_new_blob": "b01882ef95ace3249f095eb16f55df0143c7b104",
+  "original_runner_task_id_grammar": "^[A-Za-z0-9][A-Za-z0-9_-]{0,31}$",
+  "finding": "Evidence verifier previously required only distinct non-empty string task IDs, allowing raw URLs, newlines, oversized identifiers and Unicode into a passing G5 evidence document.",
+  "change": "Apply runner-identical strict ASCII identifier regex to both G5 batch and per-task model proof verification.",
+  "native_focused_predicate_reproduction": {
+    "environment": "CPython 3.13.5 isolated container, standalone predicate excerpt (not original repository unittest)",
+    "vulnerable_old_predicate_accepted_invalid_ids": 7,
+    "fixed_predicate_rejected_invalid_ids": 7,
+    "fixed_predicate_preserved_valid_ids": 3,
+    "script_sha256": "cde3ce3718490381cea7c03cfcfee8c94e99495d5808f551148a9d088ed626ad",
+    "status": "PASS",
+    "limitations": "Predicate-level reproduction, not original module execution; added repository unittest has not been executed."
+  },
+  "original_repo_unit_test": "NOT_VERIFIED",
+  "original_repo_full_CI": "NOT_VERIFIED",
+  "fresh_chromium_3x3": "NOT_VERIFIED",
+  "live_gemini_five_preview_tasks": "BLOCKED",
+  "mac_mini_fc2ea6be_reconciliation": "BLOCKED",
+  "github_actions_usage_and_5_usd_headroom": "NOT_VERIFIED",
+  "new_actions_runs_triggered": "NONE_INTENTIONALLY",
+  "prohibited_changes": "none; no main merge, production, secrets/IAM, paid spend, deletion, external action"
+}

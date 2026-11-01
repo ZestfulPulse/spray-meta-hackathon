@@ -1,0 +1,37 @@
+{
+  "schema": "spray.g45.s6.model_observation_url_redaction.v1",
+  "date": "2026-10-26",
+  "source_fix_commit": "3648bb30a95f3b759ae79426917435b3d3d56ce2",
+  "base_commit": "f97ed1e20dfde87186daa6fc0328dec3c31dae68",
+  "commits": [
+    "84c20485e0a0eff3b2d5ba63892b81c319fd15b2",
+    "3648bb30a95f3b759ae79426917435b3d3d56ce2"
+  ],
+  "original_module_blob": "8e6240ab69e942ad7c8d6f2e77c828b3304d7def",
+  "fixed_module_blob": "c58a02a5cd29fae9c76584e3fff80cb3dfb400ba",
+  "test_blob": "4163612e7a372c3df9cd68fe76515a7a67b93195",
+  "test_command": "python -m unittest -v tests.test_model_observation_urls",
+  "python_version": "3.13.5",
+  "before": {
+    "result": "FAIL",
+    "tests": 4,
+    "failures": 3,
+    "log_sha256": "e09b72a0bda914924637545cc4eb0cba22f8110b9ff74c63f1f7a6e7d4efda87"
+  },
+  "after": {
+    "result": "PASS",
+    "tests": 4,
+    "failures": 0,
+    "log_sha256": "660a1048ec86fd5dd62dd8eadab2bdbae49986d08278639af9038ef28f20abbe"
+  },
+  "verified_scope": "native Python imported original exact GitHub model_observation.py module and new original repo unittest file; no checkout of complete repository",
+  "residual_risk": "This specific fix concerns embedded absolute URLs in model-bound title/visible_text/control labels. sanitize_observation(url) still retains route path; comprehensive path-token privacy review NOT_VERIFIED.",
+  "full_unittest": "NOT_VERIFIED",
+  "chromium": "NOT_VERIFIED",
+  "latest_ci": "NOT_VERIFIED",
+  "live_gemini": "BLOCKED",
+  "mac_mini_g3": "BLOCKED",
+  "real_model_calls": 0,
+  "new_actions_runs": 0,
+  "additional_paid_usd": 0
+}

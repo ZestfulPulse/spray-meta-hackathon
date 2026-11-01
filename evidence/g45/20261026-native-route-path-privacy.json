@@ -1,0 +1,61 @@
+{
+  "schema": "spray.g45.native_route_privacy.v1",
+  "date_kst": "2026-10-26",
+  "ledger": "https://github.com/ZestfulPulse/SPRAY/issues/36",
+  "scope": "S6 model observation URL path privacy; CPython source-identical focused unittest; synthetic strings only",
+  "start_head": "11abc372f55bd665d33b99e2f7defffc970ff111",
+  "test_commit": "ebf4e451191da9b8cbcdf209560b14f4456964ab",
+  "fix_commit": "92ba0b3d9f14d6d392148bc4c6bc6bc30989b679",
+  "git_blobs": {
+    "original_source": "c58a02a5cd29fae9c76584e3fff80cb3dfb400ba",
+    "fixed_source": "5a8b80b52f6b253186c7066e8af2982f08ada69a",
+    "expanded_test": "09e7efaf61b0d46894e29a62e9b314a8bfb87b9c"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "network": "not used by focused tests",
+    "browser": "not used",
+    "model_requests": 0,
+    "github_actions_dispatched": 0
+  },
+  "command": "python -m unittest -v tests.test_model_observation_urls",
+  "before": {
+    "status": "FAIL",
+    "tests": 7,
+    "failures": 6,
+    "existing_tests_passed": 4,
+    "log_sha256": "a0fb14f78f6995030268f15196520ab841be434870a096078f364dd86d574983"
+  },
+  "after": {
+    "status": "PASS",
+    "tests": 7,
+    "failures": 0,
+    "log_sha256": "6a7e4e322bb81b3f7422ed27fd011f5192788d36f1a4c03d6a2b9bcf4c98b7d8"
+  },
+  "assertions": [
+    "dynamic URL path segments masked even when short, lowercase, numeric, or percent-encoded",
+    "generic allowlisted static route words retained",
+    "query and fragment excluded",
+    "bounded output preserved",
+    "previous embedded URL and secret masking 4/4 preserved"
+  ],
+  "remote_compare_before_evidence": {
+    "ahead_by": 2,
+    "behind_by": 0,
+    "changed_files": [
+      "spray_schema/model_observation.py",
+      "tests/test_model_observation_urls.py"
+    ]
+  },
+  "current_head_ci": {
+    "workflow_runs": 0,
+    "combined_statuses": 0,
+    "verdict": "NOT_VERIFIED"
+  },
+  "remaining": {
+    "S1": "BLOCKED - local Mac mini G3 fc2ea6be unavailable",
+    "S5": "BLOCKED - five approved Preview tasks, Free Tier/RPD and trusted runner unverified",
+    "S6": "PARTIAL - latest entire repo test/Chromium not verified",
+    "S7": "NOT_VERIFIED - full CI and live-demo certification outstanding"
+  }
+}

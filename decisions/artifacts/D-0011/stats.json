@@ -1,0 +1,1 @@
+{"analysis":"stats","counts":{"files_scanned":179,"total_bytes":1263345,"total_lines":26180},"decision_id":"D-0011","fallback":false,"mapped_from":"Create repo-local offline file ./artifacts/complexity-longfile-audit.md by counting lines per file locally with no network, no cash, no publishing"}

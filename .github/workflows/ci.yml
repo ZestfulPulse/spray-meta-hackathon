@@ -1,0 +1,40 @@
+name: CI Quality Gate
+
+# Offline quality gate for the SPRAY repository.
+#
+# Runs ONLY Python standard-library checks on GitHub-hosted runners:
+# no third-party pip installs, no AWS, no deploy, no auto-merge.
+# See ci/README.md for exactly what this gate proves and does NOT prove.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - feat/p0-g1b-ci-gate
+
+# Least privilege: the gate only reads the checked-out source. No write token.
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Offline quality gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Policy checks (credential-format scan)
+        run: python3 ci/policy_checks.py
+
+      - name: Validate docs and local Markdown links (draft-safe)
+        run: python3 ci/validate_docs.py
+
+      - name: Run stdlib unittest suite
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v

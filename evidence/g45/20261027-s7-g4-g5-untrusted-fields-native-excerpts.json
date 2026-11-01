@@ -1,0 +1,79 @@
+{
+  "schema": "spray.g45.s7_focused_evidence.v1",
+  "local_date_kst": "2026-10-27",
+  "issue": 36,
+  "base_head": "c9c5bfc6a0ba7b547c606717128b62297ec908c6",
+  "test_commit": "5f8a29e77d10da929a62ac673afea5cb4bacdd32",
+  "fix_commit": "88658e37be8b1fb00c0c3fb967a67aa504f347e5",
+  "changed_files": [
+    "tests/test_g45_evidence_gate.py",
+    "scripts/verify_g45_evidence.py"
+  ],
+  "github_blobs": {
+    "verifier": "aa1b61936793c1127879c3c567b383efd18ba1a0",
+    "regression_tests": "0a74d7ec891f7b7aaa437978f100fa600a4debcf"
+  },
+  "problem": "G4 verifier accepted untrusted additional root/record/trace/click fields, an incorrect external_requests claim, truthy integer boolean proofs and True as trace step=1. G5 verifier accepted untrusted extra root/task fields and arbitrary failure quality-gate strings. This could certify contaminated synthetic evidence; no live secret leakage observed.",
+  "guard": "G4 exact root/record field sets, trace whitelist, click-action exact keys, boolean types, integer steps and attested blocked external requests; G5 exact root fields, task key whitelist and known QA gates.",
+  "native_focused_validation": {
+    "verdict": "PASS",
+    "environment": "CPython 3.13.5, isolated container",
+    "scope": "Copied exact verify_g4 and verify_g5_batch function excerpts, NOT full GitHub checkout, NOT original GitHub unittest/Chromium",
+    "fnv32_checks": {
+      "g4": {
+        "length": 4204,
+        "checksum": 370350733
+      },
+      "g5": {
+        "length": 6380,
+        "checksum": 1797599262
+      }
+    },
+    "test_methods_passed": 15,
+    "baseline_accepted": 2,
+    "adverse_mutations_reproduced_before_and_rejected_after": 11,
+    "mutation_names": [
+      "g4/root_raw",
+      "g4/root_policy",
+      "g4/record_raw",
+      "g4/trace_raw",
+      "g4/action_raw",
+      "g4/boolean_forgery",
+      "g4/step_boolean",
+      "g5/batch_raw",
+      "g5/task_raw",
+      "g5/task_url",
+      "g5/invalid_gate"
+    ],
+    "regression_test_hash_and_excerpt_checks": 2,
+    "combined_native_log_sha256": "96023308d99b877772b8362122f9a6519f3b63dbb021f5a39a9d946d180f95ea",
+    "g4_before_log_sha256": "13ce9dee2d676b13c04e0d5e33f4b8c890cc05c105d1e07f4d046b24c3373d44",
+    "g5_before_log_sha256": "0a6215da05ad4edae3d46552c4e68e13457bc44dd9ad15ff2594d1f009fc3841",
+    "original_full_repo_unittest": "NOT_VERIFIED",
+    "chromium_current_head": "NOT_VERIFIED",
+    "model_preview_5tasks": "BLOCKED"
+  },
+  "safety": {
+    "github_actions_new_runs": 0,
+    "latest_head_ci": "NOT_VERIFIED",
+    "monthly_actions_minutes_and_spend_headroom": "NOT_VERIFIED",
+    "live_model_calls": 0,
+    "preview_visits": 0,
+    "main_merge": false,
+    "production_deploy": false,
+    "iam_or_secrets_change": false,
+    "paid_usage": false,
+    "deletion": false,
+    "external_publication": false
+  },
+  "next_actions": [
+    "Run original tests.test_g45_evidence_gate on an authorized zero-additional-cost runner",
+    "Repeat G4 Chromium 3x3 + G5 synthetic 5 tasks on current HEAD then verify artifact gate",
+    "Reconcile fc2ea6be on Mac mini before S1 PASS",
+    "Only run G5 live tasks after five-manifest and free RPD are verified"
+  ],
+  "limitations": [
+    "FNV32 excerpt checksum is non-cryptographic; GitHub full-file blob SHA recorded independently",
+    "Native focused checks do not establish a fully reproducible browser/model demo"
+  ]
+}

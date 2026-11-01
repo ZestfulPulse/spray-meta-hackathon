@@ -1,0 +1,1 @@
+{"analysis":"inventory","counts":{"by_extension":{".json":44,".md":28,".py":108,".txt":1,".yml":2,"<none>":1},"distinct_extensions":6,"total_files":184},"decision_id":"D-0015","fallback":true,"mapped_from":"Produce repo-local offline dead-export audit artifact at ./artifacts/dead-export-audit.json via local file walk and export/import grep with no network, posts, or purchases"}

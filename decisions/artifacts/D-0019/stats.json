@@ -1,0 +1,1 @@
+{"analysis":"stats","counts":{"files_scanned":191,"total_bytes":1497256,"total_lines":29543},"decision_id":"D-0019","fallback":false,"mapped_from":"Run repo-local offline stats analysis for line and byte statistics and sizes to produce local artifact only"}

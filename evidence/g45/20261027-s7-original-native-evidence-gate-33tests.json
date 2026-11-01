@@ -1,0 +1,69 @@
+{
+  "schema": "spray.g45.native_evidence_gate_validation.v1",
+  "generated_at_utc": "2026-10-26T21:11:41Z",
+  "source": {
+    "repository": "ZestfulPulse/SPRAY",
+    "branch": "feat/g45-unattended-batch-20261024",
+    "head_before": "48bfbb8407a0f38a157a79b1da1026605291bc0b",
+    "files": [
+      {
+        "path": "scripts/verify_g45_evidence.py",
+        "github_blob_sha": "f7bab17d77f44806c03956181cc8b195dd6e616d",
+        "isolated_git_hash_object": "f7bab17d77f44806c03956181cc8b195dd6e616d"
+      },
+      {
+        "path": "tests/test_g45_evidence_gate.py",
+        "github_blob_sha": "ae897b6d196ccff263146ec658ffc6740c99d9eb",
+        "isolated_git_hash_object": "ae897b6d196ccff263146ec658ffc6740c99d9eb"
+      }
+    ]
+  },
+  "runtime": {
+    "python": "CPython 3.13.5",
+    "environment": "isolated container, NOT owner Mac mini or a full repository checkout",
+    "method": "reconstructed the two entire original GitHub files as byte-identical source and test modules, verified by Git blob SHA",
+    "command": "python -m unittest -v tests.test_g45_evidence_gate",
+    "test_scope": "original single-module unittest, stdlib only",
+    "tests_run": 33,
+    "passed": 33,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "stdout_stderr_sha256": "107e93d31001825aef8bf7e129ce9b31d541d24174d77aa2ddde0922349741e9"
+  },
+  "additional_mutation_probe": {
+    "method": "deterministic top-level field replacement of original fixture dicts, including non-JSON NaN/Infinity stress values",
+    "cases": 351,
+    "exceptions": 0,
+    "readiness_passes": 4,
+    "detail": "Four PASS cases retain an allowed equivalent bool or a syntactically acceptable substituted browser_version; they do not verify a real Chromium identity.",
+    "summary_sha256": "bb75bd2d7520ed48e32df9580c58d2fe19361733b756c1848d55017fb5df98b4"
+  },
+  "verdicts": {
+    "S7_original_evidence_gate_unittest": "PASS_SCOPE_LIMITED_33_OF_33",
+    "S7_current_head_full_repo_unittest": "NOT_VERIFIED",
+    "S3_original_G4_Chromium_3x3_current_head": "NOT_VERIFIED",
+    "S4_original_G5_synthetic_5task_current_head": "NOT_VERIFIED",
+    "S5_live_Preview_Gemini_5tasks": "BLOCKED",
+    "S1_local_G3_reconciliation": "BLOCKED",
+    "GitHub_Actions_CI_current_head": "NOT_VERIFIED",
+    "G6_release_demo_readiness": "NOT_VERIFIED"
+  },
+  "costs_and_safety": {
+    "real_model_requests": 0,
+    "external_preview_requests": 0,
+    "new_github_actions_runs_requested": 0,
+    "paid_spend_usd": 0,
+    "main_merge": false,
+    "production_deploy": false,
+    "secrets_or_iam_changes": false,
+    "external_publication": false
+  },
+  "limitations": [
+    "The verifier's unit tests use synthetic evidence and cannot attest any real Gemini call, Free Tier/RPD, or approved Preview target.",
+    "The 351 mutations are supplemental smoke checks, not complete property-based coverage; four permitted substitutions demonstrate format-only provenance limitations.",
+    "Current-head full CI and actual repository G4 Chromium/G5 task integration remain unverified. Historic CI successes are not upgraded to current HEAD.",
+    "Mac mini local commit fc2ea6be5ea1ee9749a07da8f4836d3eb60df4f9 was not accessed or reconciled.",
+    "The full individual unittest log is retained only in the isolated execution environment; SHA256 is committed for provenance."
+  ]
+}

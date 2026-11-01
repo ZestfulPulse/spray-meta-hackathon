@@ -1,0 +1,1 @@
+{"analysis":"inventory","counts":{"by_extension":{".json":52,".md":28,".py":114,".txt":1,".yml":2,"<none>":1},"distinct_extensions":6,"total_files":198},"decision_id":"D-0023","fallback":false,"mapped_from":"Generate repo-local offline file inventory including extensions count and file tree artifact with zero network side effects"}

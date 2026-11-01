@@ -1,0 +1,1 @@
+{"analysis":"inventory","counts":{"by_extension":{".json":42,".md":28,".py":108,".txt":1,".yml":2,"<none>":1},"distinct_extensions":6,"total_files":182},"decision_id":"D-0013","fallback":true,"mapped_from":"Produce repo-local offline artifact .spray/test_gap_map.json via source-vs-test filename matching with no network, publish, message, or purchase side effects"}

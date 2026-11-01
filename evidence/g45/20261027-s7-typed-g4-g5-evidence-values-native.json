@@ -1,0 +1,61 @@
+{
+  "schema": "spray.g45.s7_focused_evidence.v2",
+  "date_kst": "2026-10-27",
+  "issue": 36,
+  "prior_reference": "evidence/g45/20261027-s7-g4-g5-untrusted-fields-native-excerpts.json",
+  "regression_test_commit": "f7b7d02d3f88f8d9e3f62a275b02dda8e515343b",
+  "verifier_fix_commit": "e950c0eedbc393e2cefdf0a7c7064aaa8f9fef71",
+  "github_blob_sha": {
+    "tests": "111434bb182ae992d33eb9176c250ec29a66b23a",
+    "verifier": "31dbd2334b2ad580af9fa4d2628d90add51e5e32"
+  },
+  "issue_found": "G4 whitelisted fields still allowed unchecked observation_sha256/error_type payloads and URL-like browser_version; G5 reason and run_id could contain URL-like raw strings.",
+  "defense": "G4 observes sha256 strict lower-hex format, bounded ASCII exception class suffix and bounded Chromium-version syntax. G5 run_id is short ASCII identifier, and reason is a bounded ASCII identifier. Existing key whitelists remain.",
+  "focused_native_tests": {
+    "verdict": "PASS",
+    "python": "CPython 3.13.5",
+    "tests_passed": 22,
+    "controls_valid": 4,
+    "tampered_cases_reproduced_old_and_rejected_new": 16,
+    "provenance_checks": 2,
+    "actual_source_scope": "Exact copied verify_g4 / verify_g5_batch function excerpts checked by length+FNV32; not full GitHub file or repository checkout",
+    "source_function_checksums": {
+      "verify_g4": {
+        "length": 5205,
+        "fnv32": 1497786524
+      },
+      "verify_g5_batch": {
+        "length": 6688,
+        "fnv32": 3713854266
+      }
+    },
+    "log_sha256": "f5807242d6a105ffaef8483ffea81793cadd29f472798b380eda34fba6ab6c37",
+    "original_test_file_run": "NOT_VERIFIED",
+    "latest_head_ci": "NOT_VERIFIED",
+    "latest_head_real_chromium": "NOT_VERIFIED",
+    "g5_five_live_tasks": "BLOCKED"
+  },
+  "cost_and_permissions": {
+    "new_github_actions_runs": 0,
+    "actions_monthly_balance": "NOT_VERIFIED",
+    "live_model_calls": 0,
+    "browser_preview_work": 0,
+    "paid_expenditure": false,
+    "main_merge": false,
+    "production": false,
+    "iam_secrets": false,
+    "deletion": false,
+    "external_publication": false
+  },
+  "mandatory_next": {
+    "original_repo_unittest": "Run python -m unittest -v tests.test_g45_evidence_gate when free verified environment exists",
+    "chromium": "Run G4 3x3 and G5 5 synthetic original runner, collect and validate original artifacts",
+    "g3_local": "BLOCKED: Mac mini inaccessible; fc2ea6be remote GitHub returns 422",
+    "real_preview": "BLOCKED: five authorized Preview tasks and actual free-tier residual RPD not verified",
+    "final_demo": "NOT_VERIFIED"
+  },
+  "limitations": [
+    "Non-cryptographic excerpt checksum plus official Git blob of full file; not whole-file byte-identical local verification",
+    "No new GitHub Actions triggered due unknown monthly quota and $5 additional cost headroom"
+  ]
+}
