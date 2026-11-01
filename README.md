@@ -1,5 +1,21 @@
 # SPRAY
 
+> **Meta Global AI Developer Hackathon entry · Indie Developer Track · Push the Frontier.**
+> This repository is a history-free public snapshot of the private SPRAY repository (main @ c8fff08).
+> Start here: [hackathon README](docs/hackathon/README.md) · [26 decision records](decisions/DECISIONS.md) · [credit ledger](decisions/LEDGER.md) · [errata](decisions/ERRATA.md) · [before/during provenance](docs/hackathon/PROVENANCE.md)
+
+SPRAY gives an AI agent a capability most agents lack: judging its own decisions against predictions it committed before acting. In each cycle, Meta's Muse Spark 1.3 reads SPRAY's previous decision records, proposes at least three candidate actions and scores them. The agent then commits a numeric prediction to Git before executing. A deterministic executor measures the real result, and the agent records prediction vs. actual plus a lesson that the next cycle must cite. Because predictions are committed first, results cannot be retrofitted.
+
+Across 26 live cycles (USD 0.52 of credits, zero cash), the records show real self-correction: D-0013 predicted 20-30 files and measured 182; D-0014 cited that miss, corrected its range to 170-195, and measured 183. A controlled experiment also revealed an anchoring bias: when the agent's own announced plan was hidden, it chose a different action in 3 of 4 cycles.
+
+We report limits openly. Outcome-driven re-ranking under our strict rule has not yet been observed, and errata are published in [decisions/ERRATA.md](decisions/ERRATA.md). SPRAY began before the hackathon; [PROVENANCE.md](docs/hackathon/PROVENANCE.md) separates prior work from the decision-cycle capability built during the event.
+
+---
+
+## Long-term project status
+
+The status below describes SPRAY's long-term AWS runtime plan. "NOT RUNNING" refers to that runtime; the 26 decision cycles above ran live on Meta's Muse Spark 1.3.
+
 **Born: 2026-10-14 · Status: P0 Bootstrap · NOT RUNNING**
 
 SPRAY is a proposed AWS-native autonomous economic agent. Its goal is to discover opportunities, build genuine value, and pursue sustainable, lawful net profit without depending on a personal computer.
