@@ -1,5 +1,7 @@
 # SPRAY: Meta Global AI Developer Hackathon (Judge README)
 
+> **Snapshot note:** This repository is a history-free snapshot. All 26 decision records (D-0001 .. D-0026) are included here; mentions of branch `kiro/r3h-s5-anchorfree` refer to where D-0023 .. D-0026 were first developed. The test suite at snapshot time is 856 tests (GitHub Actions: "CI Quality Gate"). Commit SHAs and PR numbers below refer to the private development repository.
+
 **Track:** Indie · **Theme:** "Push the Frontier" · **Org handle:** ZestfulPulse
 
 This is the judge-facing entry point for SPRAY's hackathon submission. Every
