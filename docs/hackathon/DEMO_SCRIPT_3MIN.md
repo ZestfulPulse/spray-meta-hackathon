@@ -1,5 +1,7 @@
 # SPRAY: 3-Minute Demo Script
 
+> **Note:** This is the original planning script. The submitted video is a shorter cut (about 1:51): a 60-second overview followed by live evidence from GitHub Actions and the decision records D-0013 and D-0014.
+
 A timestamped script for a 3:00 demo walking ONE full, REAL decision chain
 (candidates -> scoring -> prediction committed before acting -> artifact ->
 measured outcome -> prediction-vs-actual -> lesson -> next decision citing the
